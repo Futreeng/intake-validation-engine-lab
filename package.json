@@ -1,0 +1,13 @@
+{
+  "name": "intake-validation-lab",
+  "version": "1.0.0",
+  "description": "Hands-on engineering lab: Fix and optimize the intake validation engine.",
+  "main": "src/validator.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "vitest": "^1.0.0"
+  }
+}
