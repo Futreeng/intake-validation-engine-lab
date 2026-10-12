@@ -5,7 +5,11 @@
   "main": "src/validator.js",
   "scripts": {
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "progress": "node scripts/progress.mjs"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "devDependencies": {
     "vitest": "^1.0.0"
