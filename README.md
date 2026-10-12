@@ -28,7 +28,7 @@ This is a realistic task: real intake systems reject bad data at the door, and t
    npm test
    ```
 
-3. You should see **4 failing tests and 6 passing tests**. That is the starting point.
+3. You should see **4 failing tests and 6 passing tests**. That is the starting point. (The red CI badge on this repo is expected: the starter fails on purpose.)
 4. Open `src/validator.js` and fix it until all 10 tests pass.
 
 ## Your tasks
