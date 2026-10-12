@@ -1,13 +1,18 @@
 /**
  * Validates incoming client intake records for estate planning applications.
- * 
- * TASK FOR LEARNER:
- * 1. Fix the bug where empty email strings pass validation.
- * 2. Implement logic to verify that the primary client is at least 18 years old.
- * 3. Ensure marital status updates correctly flag required spouse fields.
+ *
+ * TASKS FOR LEARNER:
+ * 1. Fix the bug where empty (or whitespace-only) email strings pass validation.
+ * 2. Implement the age check: the primary client must be at least 18 years old.
+ * 3. Verify that married applicants without a spouse name are flagged (already
+ *    implemented; the tests protect it, so do not break it).
+ *
+ * `now` is injectable so age rules can be tested against a fixed date.
  */
 
-export function validateIntakePayload(payload) {
+const MINIMUM_AGE = 18;
+
+export function validateIntakePayload(payload, { now = new Date() } = {}) {
   const errors = [];
 
   // Check required fields
@@ -15,19 +20,19 @@ export function validateIntakePayload(payload) {
     errors.push('Full name is required.');
   }
 
-  // BUG 1: Only checks if key exists, not if string is empty or valid email structure
+  // BUG 1: Only checks if the key exists, not if the string is empty or valid.
   if (!('email' in payload)) {
     errors.push('Valid email address is required.');
   }
 
-  // BUG 2: Age calculation logic is missing completely
+  // BUG 2: Age calculation logic is missing completely.
   if (payload.birthDate) {
-    // TODO: Add logic to ensure client is >= 18 years old
+    // TODO: Add logic to ensure client is >= MINIMUM_AGE, measured on `now`.
   } else {
     errors.push('Birth date is required.');
   }
 
-  // BUG 3: Married clients require spouse details
+  // Married clients require spouse details (working; see task 3).
   if (payload.maritalStatus === 'Married' && !payload.spouseName) {
     errors.push('Spouse name is required for married applicants.');
   }
