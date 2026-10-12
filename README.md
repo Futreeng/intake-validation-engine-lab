@@ -2,7 +2,7 @@
 
 Welcome to the **Future Engineering Interactive Lab**. This lab simulates a real-world task in building production-ready data intake workflows for legal tech applications.
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/YOUR_GITHUB_USERNAME/intake-validation-lab)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Futreeng/intake-validation-engine-lab)
 
 ---
 
